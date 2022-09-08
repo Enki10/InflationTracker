@@ -1,0 +1,95 @@
+﻿@model InflationTracker.Models.Grocery
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@section Scriptsee {
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $("#inflationItemSubmitButton").click(function(e) {
+            if($("#inflationItemDate").val().substring(0,7) != "2022-09"){
+                alert("please only choose august 2022");
+                e.preventDefault();
+                $("#inflationItemSubmitButton").attr('onclick', '').unbind('click');
+
+            };
+            
+        })
+    </script>
+
+}
+
+<h1>Create</h1>
+
+<h4>Grocery</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="category" class="control-label"></label>
+                <select asp-for="category" class="form-control">
+                    <option value="Meat">Meat</option>
+                    <option value="Veggies">Veggies</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="FlourBased">Flour/Flour-based</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="smname" class="control-label"></label>
+                <select asp-for="smname" class="form-control">
+                    <option value="Mercadona">Mercadona</option>
+                    <option value="Lidl">Lidl</option>
+                    <option value="Aldi">Aldi</option>
+                    <option value="Bonpreu">Bonpreu</option>
+                    <option value="Consum">Consum</option>
+                    <option value="Caprabo">Caprabo</option>
+                    <option value="Carrefour">Carrefour</option>
+                    <option value="Dia">Dia</option>
+                </select>
+                <span asp-validation-for="smname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="groceryName" class="control-label"></label>
+                <select asp-for="groceryName" class="form-control">
+                    <option value="cerdo">cerdo</option>
+                    <option value="ternera">ternera</option>
+                </select>
+                <span asp-validation-for="groceryName" class="text-danger"></span>
+
+            </div>
+            <div class="form-group" id="inflationItemDateParent">
+                <label asp-for="IssueDate" class="control-label"></label>
+                <input asp-for="IssueDate" type="date" value=@DateTime.Today.ToString("yyyy-MM-dd") class="form-control" id="inflationItemDate" />
+                <span asp-validation-for="IssueDate" class="text-danger"></span>
+                <span id="clickme"> click </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" id="inflationItemSubmitButton"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+

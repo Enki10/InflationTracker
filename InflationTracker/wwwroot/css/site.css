@@ -1,0 +1,79 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.landing_banner {
+    z-index: -1;
+    height: 500px;
+    overflow: hidden;
+    color: red;
+    padding: 30px;
+    text-transform: uppercase;
+    background-image: url("https://localhost:7077/img/inflationBannerFlipped.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.center{
+    margin:auto;
+    
+}
+.landing_item {
+    border: none !important;
+    padding: 30px 10px;
+
+}
+
+    .landing_firstColor {
+        background-color: #CDD4E4;
+        
+    }
+    .landing_secondColor {
+        background-color: #D8E0E9;
+}
+    .landing_thirdColor {
+        background-color: #E2E0DE;
+    }
+    
+
+.landing_firstItemsRow {
+   max-width:1200px; 
+   margin:-50px auto 0; 
+   z-index:1
+}
+
+.landingPageVerticalSeparator{
+    width: 100%;
+    height: 200px;
+}
+
+.landing_secondImageMargin {
+    background-color: #FAF7F5;
+    height:500px;
+    width:200px;
+    position: absolute;
+    left:-200px;
+    z-index:-1;
+}
+.landing_secondRowImage{     
+    width: 100%;
+    height: 500px;
+}
+
+.landing_posRelative{
+    position: relative;
+}
